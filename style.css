@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .main {
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .navbar {
+    background-color: #a1933d;
+    padding: 15px 0;
+    position: relative;
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .hero {
+    background-image: url('./assets/pic.JPG');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+  }
+  
+  .hero-content h2 {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .cta-button:hover {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  /* Hamburger Menu for Small Screens */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .hamburger span {
+    height: 3px;
+    width: 25px;
+    background: #fff;
+    margin: 5px 0;
+    transition: 0.4s;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar ul {
+      flex-direction: column;
+    }
+  
+    .hero-content h2 {
+      font-size: 1.2rem;
+    }
+  
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+  
+    .hero-content p {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* Hide navbar links initially */
+    #nav-menu ul {
+      display: none;
+      flex-direction: column;
+      background-color: #a1933d;
+      position: absolute;
+      width: 100%;
+      top: 100%;
+      left: 0;
+      text-align: center;
+    }
+  
+    /* Show navbar links when active */
+    #nav-menu.active ul {
+      display: flex;
+    }
+  
+    .hamburger {
+      display: flex;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      margin-top: -1.5vh;
+    }
+  
+    .hero-content h1 {
+      font-size: 1.5rem;
+    }
+  
+    .cta-button {
+      padding: 8px 16px;
+    }
+
+    .navbar {
+        height: 7vh;
+    }
+  }
