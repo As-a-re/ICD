@@ -4,6 +4,8 @@
   <title>Driving Education</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script src="main.js" defer></script>
   <style>
     * {
       margin: 0;
@@ -580,90 +582,41 @@
 <div id="payment-modal" class="modal">
       <div class="modal-content">
         <span class="close-button">&times;</span>
-        <h2>Register for Driving Lessons</h2>
-        <form id="payment-form">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required>
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-          <label for="course">Course:</label>
-          <select id="course" name="course" required>
-            <option value="">Select a course</option>
-            <option value="beginner">Beginner Driving Lessons</option>
-            <option value="defensive">Defensive Driving</option>
-            <option value="teen">Teen Driving Program</option>
-          </select>
-          <label for="payment-method">Payment Method:</label>
-          <div id="payment-method">
-            <!-- Payment integration goes here -->
-          </div>
-          <button type="submit" class="cta-button">Register and Pay</button>
-        </form>
+        <h2>Register for Driving Lessons</h2> <br> 
+       <form id="payment-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your full name"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email-address" name="email" required placeholder="Enter your email"><br><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number"><br><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br><br>
+
+        <label for="course">Course:</label>
+        <select id="course" name="course" required>
+          <option value="">Select a course</option>
+          <option value="beginner">Beginner Driving Lessons</option>
+          <option value="defensive">Defensive Driving</option>
+          <option value="teen">Teen Driving Program</option>
+        </select><br><br>
+
+        <label for="preferredDate">Preferred Start Date:</label>
+        <input type="date" id="preferredDate" name="preferredDate" required><br><br>
+
+        <label for="payment-method">Payment Method:</label>
+        <div id="payment-method"></div>
+
+        <input type="hidden" id="amount" name="amount" value="1000" />
+
+        <button type="submit" class="cta-button" onclick="payWithPaystack">Register and Pay</button>
+      </form>
       </div>
     </div>
   </div>
 
-  <script>
-    // Navbar scroll effect
-    window.addEventListener('scroll', function() {
-      const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-
-    // Hamburger menu toggle
-    function toggleMenu() {
-      const navMenu = document.getElementById("nav-menu");
-      navMenu.classList.toggle("active");
-    }
-
-    // Intersection Observer for scroll animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    // Observe all animated elements
-    document.querySelectorAll('.course-item, .testimonial-item, .instructor-item, .contact form').forEach((el) => {
-      observer.observe(el);
-    });
-
-    const modal = document.getElementById("payment-modal");
-
-    // Get the button that opens the modal
-    const ctaButton = document.querySelector(".cta-button");
-
-    // Get the <span> element that closes the modal
-    const closeButton = document.getElementsByClassName("close-button")[0];
-
-    // When the user clicks on the button, open the modal
-    ctaButton.onclick = function() {
-      modal.style.display = "block";
-      document.querySelector(".main").classList.add("blurred");
-    };
-
-    // When the user clicks on <span> (x), close the modal
-    closeButton.onclick = function() {
-      modal.style.display = "none";
-      document.querySelector(".main").classList.remove("blurred");
-    };
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-        document.querySelector(".main").classList.remove("blurred");
-      }
-    };
-  </script>
 </body>
 </html>
